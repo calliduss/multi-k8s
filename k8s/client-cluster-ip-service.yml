@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-cluster-ip-service
+spec: # how this service behave
+  type: ClusterIP
+  selector: # provides access to multi-client set of pods
+    component: web
+    ports:
+      - port: 3000
+        targetPort: 3000
