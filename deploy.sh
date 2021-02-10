@@ -6,18 +6,18 @@ docker build -t calliduss/multi-server:latest -t calliduss/multi-server:$SHA -f 
 docker build -t calliduss/multi-worker:latest -t calliduss/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 # push each to Docker Hub
-docker push callduss/multi-client:latest
-docker push callduss/multi-server:latest
-docker push callduss/multi-worker:latest
+docker push calliduss/multi-client:latest
+docker push calliduss/multi-server:latest
+docker push calliduss/multi-worker:latest
 
-docker push callduss/multi-client:$SHA
-docker push callduss/multi-server:$SHA
-docker push callduss/multi-worker:$SHA
+docker push calliduss/multi-client:$SHA
+docker push calliduss/multi-server:$SHA
+docker push calliduss/multi-worker:$SHA
 
 # take all configs in k8s directory and apply them
 kubectl apply -f k8s
 
 # imperatively set latest images on each deployment
-kubectl set image deployments/server-deployments server=calliduss/multi-server:$SHA
-kubectl set image deployments/client-deployments client=calliduss/multi-client:$SHA
-kubectl set image deployments/worker-deployments worker=calliduss/multi-worker:$SHA
+kubectl set image deployments/server-deployment server=calliduss/multi-server:$SHA
+kubectl set image deployments/client-deployment client=calliduss/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=calliduss/multi-worker:$SHA
