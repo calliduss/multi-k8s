@@ -27,7 +27,7 @@ before_install:
   - gcloud auth activate-service-account --key-file service-account.json
 
   # Where "multi-k8s-304015" is generated ID by google. Can be found in Google cloud dash -> Kubernetes Engine -> cluster -> project
-  - gcloud config set project multi-k8s-304015
+  - gcloud config set project silken-hulling-304812
 
   # Specify a compute zone: Google cloud dash -> Kubernetes Engine -> cluster -> location
   - gcloud config set compute/zone europe-north1-a

@@ -14,6 +14,6 @@ spec: # customize how this deployment behave
     spec: # customize the behavior of each created pod
       containers: # containers that this pod is going to run
         - name: client
-          image: stephengrider/multi-client
+          image: calliduss/multi-client
           ports:
             - containerPort: 3000
